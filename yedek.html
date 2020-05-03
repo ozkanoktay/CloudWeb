@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar bg-light navbar-expand-sm navbar-light fixed-top">
+        <div class="container">
+            <a href="/" class="navbar-brand font-weight-bold ">
+                <i class="fas fa-video fa-lg"></i>&nbsp;&nbsp;&nbsp;FilmoMat&nbsp;&nbsp;&nbsp;<i class="fas fa-film fa-lg"></i>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            Test
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Genres
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Adventure</a>
+                            <a class="dropdown-item" href="#">Comedy</a>
+                            <a class="dropdown-item" href="#">Crime</a>
+                            <a class="dropdown-item" href="#">Drama</a>
+                            <a class="dropdown-item" href="#">Family/Kids</a>
+                            <a class="dropdown-item" href="#">Romance</a>
+                            <a class="dropdown-item" href="#">Fantasy</a>
+                            <a class="dropdown-item" href="#">Horror</a>
+                            <a class="dropdown-item" href="#">Documentary</a>
+
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">View all movies</a>
+
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            New Films
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            Popular Films
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            Most Watched Films
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            More...
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                            <a class="dropdown-item" href="#">About Us</a>
+                            <a class="dropdown-item" href="#">Contact US</a>
+                            <a class="dropdown-item" href="#">Privacy Policy</a>
+                            <a class="dropdown-item" href="#">Frequently Asked Questions</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-user fa-lg" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"></i>
+
+                        <div id="id01" class="modal">
+
+                            <form class="modal-content animate" action="/action_page.php" method="post">
+                                <div class="imgcontainer">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <img src="img/man-wearing-blue-shirt-illustration-png-clip-art.png" alt="Avatar" class="avatar">
+                                </div>
+
+                                <div class="container">
+                                    <label for="uname"><b>Username</b></label>
+                                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                    <button type="submit">Login</button>
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                                    </label>
+                                </div>
+
+                                <div class="container" style="background-color:#f1f1f1">
+                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                    <span class="psw">Forgot <a href="#">password?</a></span>
+                                </div>
+                            </form>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <header>
+
+        <div class="jumbotron bg-dark text-white">
+            <div class="container">
+                <h2>Last Added Movies</h2>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="https://www.fullhdfilmizlesene.com/film/harry-potter-ve-olum-yadigarlari-bolum-2-film-izle-1080p/" class="nav-link active">
+                                <img src="img/Harry-Potter-and-The-Deathly-Hallows-Part-2.jpg" alt="Harry Potter" style="width:100%;">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fullhdfilmizlesene.com/aksiyon-film-izle/john-wick-3-prblm-izlehd-full-filmi/" class="nav-link active">
+                                <img src="img/john%20wick_1600x1000.jpg" alt="John Wick" style="width:100%;">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fullhdfilmizlesene.com/film/sirinler-3-kayip-koy-film-izle/" class="nav-link active">
+                                <img src="img/smurfs-lost-village-arab-stars_1600x1000.jpg" alt="Smurfs" style="width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-9">
+
+
+                    <div class="container pb-5">
+                        <h3 class="popularitems" style="color: black; text-align: center">Popular Movies</h3>
+                        <div class="card-deck">
+                            <div class="card">
+                                <img src="img/thedarknight.jpg" class="card-img-top img-responsive w-100" alt="card image">
+
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-align: center">The Dark Knight</h5>
+
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm ">
+                                            <p>IMDB</p><i class="far fa-star"></i>9.0/10
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-lg "><a href="https://www.speedytv.com/us/watch-the-dark-knight-2008">Watch Now!</a></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card">
+                                <img src="img/ourplanet.jpg" class="card-img-top img-responsive w-100" alt="card image">
+
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-align: center">Our Planet</h5>
+
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm ">
+                                            <p>IMDB</p><i class="far fa-star"></i>8.4/10
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-lg "><a href="https://www.speedytv.com/us/watch-our-planet-2019">Watch Now!</a></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card">
+                                <img src="img/theplatform.jpg" class="card-img-top img-responsive w-100" alt="card image">
+
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-align: center">The Platform</h5>
+
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm ">
+                                            <p>IMDB</p><i class="far fa-star"></i>7.0/10
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-lg "><a href="https://www.fullhdfilmizlesene.com/film/the-platform-el-hoyo-izle/">Watch Now!</a></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="card-deck" style="margin-top:20px;">
+                            <div class="card">
+                                <img src="img/extraction.jpg" class="card-img-top img-responsive w-100" alt="card image">
+
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-align: center">Extraction</h5>
+
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm ">
+                                            <p>IMDB</p><i class="far fa-star"></i>8.1/10
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-lg "><a href="https://www.fullhdfilmizlesene.com/film/extraction-tyler-rake-izle/">Watch Now!</a></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card">
+                                <img src="img/fullhd-bekar-yasam-kilavuzu-how-to-be-single.jpg" class="card-img-top img-responsive w-100" alt="card image">
+
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-align: center">How To Be Single</h5>
+
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm ">
+                                            <p>IMDB</p><i class="far fa-star"></i>6.1/10
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-lg "><a href="https://www.fullhdfilmizlesene.com/film/bekar-yasam-kilavuzu-how-to-be-single/">Watch Now!</a></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card">
+                                <img src="img/fullhd-willoughby-ailesi-the-willoughbys-izle.jpg" class="card-img-top img-responsive w-100" alt="card image">
+
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-align: center">The Willoughbys</h5>
+
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm ">
+                                            <p>IMDB</p><i class="far fa-star"></i>6.7/10
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-lg "><a href="https://www.fullhdfilmizlesene.com/film/willoughby-ailesi-the-willoughbys-izle/">Watch Now!</a></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <a id="loadmore" class="btn btn-outline-primary btn-lg" href="#" role="button" style="border-radius: 25px; text-align: center;">Load More &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-sync-alt"></i></a>
+
+                        <hr>
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>Search</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search movie...">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-secondary">
+                                        Search!
+                                    </button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>Suggest Movie</h5>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 20px; text-shadow: 2px 2px 5px red;">Sex
+                            </p>
+                            <p>
+                                <input type="radio" name="sex">Male
+                                <input type="radio" name="sex">Female
+                                <input type="radio" name=" sex">Other
+
+                            </p>
+                            <p style="font-size: 20px; text-shadow: 2px 2px 5px red;">How do you feel?
+                            </p>
+                            <p>
+                                <select name="feel" id="feel">
+                                    <option>Select</option>
+                                    <option>Awesome</option>
+                                    <option>Good</option>
+                                    <option>Bad</option>
+                                    <option>I am still alive.</option>
+                                </select>
+                            </p>
+                            <p style="font-size: 20px; text-shadow: 2px 2px 5px red;">Which one is most important for you?</p>
+                            <p>
+                                <select name="important" id="important">
+                                    <option>Select</option>
+                                    <option>Money</option>
+                                    <option>Health</option>
+                                    <option>Friends</option>
+                                    <option>Family.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                </select>
+                            </p>
+                            <p>
+                                <input type="submit" style="color:crimson; font-weight: bold;" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>Genres</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Adventure</a></li>
+                                        <li><a href="#">Comedy</a></li>
+                                        <li><a href="#">Crime</a></li>
+                                        <li><a href="#">Drame</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Family/Kids</a></li>
+                                        <li><a href="#">Romance</a></li>
+                                        <li><a href="#">Fantasy</a></li>
+                                        <li><a href="#">Horror</a></li>
+                                        <li><a href="#">Documentary</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer class="py-5 bg-dark text-white text-center">
+        Copyright © 2020 CE407
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
